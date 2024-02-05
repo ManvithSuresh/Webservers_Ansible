@@ -1,0 +1,16 @@
+---
+- name: Install and Start tomcat
+  hosts: all
+  become: true
+
+  tasks:
+   - name: Install tomcat
+     apt:
+       name: tomcat9
+       state: present
+
+   - name: start tomcat
+     service:
+       name: tomcat9
+       state: started
+
