@@ -1,0 +1,4 @@
+Create inventory file in the server.
+Add the server details (IP Address) into the inventory file.
+List the servers if there are multiple and the servers are of different type. Like Databases, Webservers etc.
+Select the name of from list while writing the playbooks.
