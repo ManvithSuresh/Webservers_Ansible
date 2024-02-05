@@ -1,0 +1,25 @@
+#--- will indicate this as a playbook
+
+---
+- name: Install and Start Nginx
+  hosts: all
+#we can specify on which server group this should be installed (From the inventory file)
+  become: true
+#sometime while installing the servers, the dpkg (packages for them will be installed only using root)
+
+  tasks:
+   - name: Install Nginx
+#    shell: apt install nginx
+#- under tasks will identify that we are performing list of tasks.
+#playbook provides apt by default. Therefore we can also mention task as below/to keep more generic.
+     apt:
+       name: nginx
+       state: present
+
+   - name: Start nginx
+#    shell: systemctl start nginx
+#Playbook provides a service module. And we can use it to start the nginx
+     service:
+       name: nginx
+       state: started
+
